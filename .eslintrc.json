@@ -1,0 +1,86 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true,
+		"node": true
+	},
+	"extends": [
+		"airbnb",
+		"airbnb/hooks",
+		"prettier",
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings"
+	],
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx"],
+			"extends": [
+				"airbnb-typescript",
+				"airbnb-typescript-prettier",
+				"plugin:@typescript-eslint/recommended",
+				"plugin:@typescript-eslint/recommended-requiring-type-checking",
+				"plugin:import/typescript"
+			],
+			"parserOptions": {
+				"project": ["./tsconfig.json"]
+			},
+			"rules": {
+				"import/prefer-default-export": "off",
+				"@typescript-eslint/indent": ["error", "tab"],
+				"@typescript-eslint/semi": ["error", "never"],
+				"@typescript-eslint/no-magic-numbers": [
+					"error",
+					{
+						"ignoreTypeIndexes": true
+					}
+				],
+				"react/function-component-definition": [
+					"error",
+					{
+						"namedComponents": ["function-expression", "arrow-function"],
+						"unnamedComponents": ["function-expression", "arrow-function"]
+					}
+				],
+				"react/react-in-jsx-scope": "off"
+			}
+		}
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "@typescript-eslint", "prettier"],
+	"settings": {
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		},
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"paths": "./tsconfig.json"
+			}
+		}
+	},
+	"rules": {
+		"import/prefer-default-export": "off",
+		"prettier/prettier": "error",
+		"indent": ["error", "tab"],
+		"linebreak-style": ["error", "unix"],
+		"quotes": ["error", "single"],
+		"semi": ["error", "never"],
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"no-magic-numbers": "error",
+		"no-duplicate-imports": "error",
+		"react/function-component-definition": [
+			"error",
+			{
+				"namedComponents": ["function-expression", "arrow-function"],
+				"unnamedComponents": ["function-expression", "arrow-function"]
+			}
+		],
+		"react/react-in-jsx-scope": "off"
+	}
+}
