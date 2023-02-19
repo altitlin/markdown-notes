@@ -11,21 +11,21 @@ const staleTime = MINUTES_STALE_TIME * MILLISECONDS_PER_MINUTE
 const cacheTime = MINUTES_CACHE_TIME * MILLISECONDS_PER_MINUTE
 
 const queryClient = new QueryClient({
-	defaultOptions: {
-		queries: {
-			refetchOnWindowFocus: false,
-			refetchOnReconnect: false,
-			retry: 1,
-			staleTime,
-			cacheTime,
-		},
-	},
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      retry: 1,
+      staleTime,
+      cacheTime,
+    },
+  },
 })
 
 export const withReactQuery = (component: () => ReactNode) => () =>
-	(
-		<QueryClientProvider client={queryClient}>
-			{component()}
-			<ReactQueryDevtools />
-		</QueryClientProvider>
-	)
+  (
+    <QueryClientProvider client={queryClient}>
+      {component()}
+      <ReactQueryDevtools />
+    </QueryClientProvider>
+  )
